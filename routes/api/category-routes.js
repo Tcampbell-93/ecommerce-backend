@@ -5,7 +5,6 @@ const { Category, Product, ProductTag } = require('../../models');
 
 router.get('/', async (req, res) => {
   // find all categories
-  // be sure to include its associated Products
   try {
     const allCategories = await Category.findAll( {
       include: [{ model: Product }]
@@ -46,7 +45,7 @@ router.put('/:id', async (req, res) => {
     const updatedCategory = await Category.update(req.body, {
       where: { id: req.params.id }
     });
-
+    // if the request has an id find the associated category
     if (req.body.categoryIds && req.body.categoryIds.length) {
       const existingCategory = await Category.findByPk(req.params.id, {
         include: [{ model: Category, as: 'associated_categories' }]
@@ -78,7 +77,7 @@ router.delete('/:id', async (req, res) => {
         id: req.params.id
       }
     });
-    
+    // if no category with given id send error message
     if (!categoryData) {
       res.status(404).json({ message: 'No category found with this id.'});
       return;

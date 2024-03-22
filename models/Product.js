@@ -11,7 +11,7 @@ class Product extends Model {}
 Product.init(
   {
     // define columns
-    id: {
+    id: {   // id column as primary key
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
@@ -28,7 +28,7 @@ Product.init(
         isDecimal: true
       }
     },
-    stock: {
+    stock: {    // setting stock integer and default value of 10
       type: DataTypes.INTEGER,
       allowNull: false,
       defaultValue: 10,
@@ -36,7 +36,7 @@ Product.init(
         isNumeric: true
       }
     },
-    category_id: {
+    category_id: {    // setting category_id as secondary key
       type: DataTypes.INTEGER,
       references: {
         model: 'category',
