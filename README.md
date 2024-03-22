@@ -21,4 +21,4 @@ Google.com
 canvas xpert learning assistant
 
 ## Demo
-I have created a video demonstration of the app. To view it click this link, 
+I have created a video demonstration of the app. To view it click this link, "https://drive.google.com/file/d/1ojySTFVK1umSGcNee8GG-gUTs_JpdKmV/view"
